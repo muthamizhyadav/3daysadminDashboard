@@ -1,11 +1,12 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <div className="w-64 bg-purple-600 text-white">
+    <div className="w-64 bg-purple-600 text-white relative">
       <h1 className=" pt-5 pb-5 text-[20px] font-semibold flex gap-2 items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +24,8 @@ const Sidebar: React.FC = () => {
       </h1>
       <nav>
         <ul>
-          <li onClick={()=>navigate('/dashboard')}
+          <li
+            onClick={() => navigate("/dashboard")}
             className={`w-[90%] m-auto flex items-center cursor-pointer font-semibold text-[18px] gap-2 p-2 rounded-[2px] mb-5 ${
               location.pathname === "/dashboard"
                 ? "bg-white text-purple-700"
@@ -44,7 +46,8 @@ const Sidebar: React.FC = () => {
             </svg>
             Dashboard
           </li>
-          <li onClick={()=>navigate('/manage-candidate')}
+          <li
+            onClick={() => navigate("/manage-candidate")}
             className={`w-[90%] m-auto flex items-center cursor-pointer font-semibold text-[18px] gap-2 p-2 rounded-[2px] mb-5 ${
               location.pathname === "/manage-candidate"
                 ? "bg-white text-purple-700"
@@ -66,7 +69,8 @@ const Sidebar: React.FC = () => {
             </svg>
             Manage Candidate
           </li>
-          <li onClick={()=>navigate('/manage-employer')}
+          <li
+            onClick={() => navigate("/manage-employer")}
             className={`w-[90%] m-auto flex items-center cursor-pointer font-semibold text-[18px] gap-2 p-2 rounded-[2px] mb-5 ${
               location.pathname === "/manage-employer"
                 ? "bg-white text-purple-700"
@@ -83,7 +87,8 @@ const Sidebar: React.FC = () => {
             </svg>
             Manage Employer
           </li>
-          <li onClick={()=>navigate('/manage-job-post')}
+          <li
+            onClick={() => navigate("/manage-job-post")}
             className={`w-[90%] m-auto flex items-center cursor-pointer font-semibold text-[18px] gap-2 p-2 rounded-[2px] mb-5 ${
               location.pathname === "/manage-job-post"
                 ? "bg-white text-purple-700"
@@ -111,6 +116,15 @@ const Sidebar: React.FC = () => {
           </li>
         </ul>
       </nav>
+      <div className="absolute w-full bottom-2 content-center flex justify-center">
+        <button
+          type="button"
+          className="flex gap-2 border border-white rounded-md w-[90%] justify-center py-1 bg-white text-center items-center text-red-500 font-medium"
+        >
+          <RiLogoutCircleLine size={20} color="red" />
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

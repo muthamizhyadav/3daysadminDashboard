@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, useRoutes } from "react-router-dom";
 import Routers from "./router";
 import "@mantine/core/styles.css";
 import { createTheme, MantineProvider } from "@mantine/core";
+import '@mantine/dates/styles.css';
 
 function App() {
   const theme = createTheme({
